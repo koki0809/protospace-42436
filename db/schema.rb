@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_02_13_061018) do
+ActiveRecord::Schema[7.1].define(version: 2026_02_17_053424) do
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "user_name", default: "", null: false
     t.string "profile", default: "", null: false
     t.string "affiliation", default: "", null: false
-    t.string "Position", default: "", null: false
+    t.string "position", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
