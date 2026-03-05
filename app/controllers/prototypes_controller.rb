@@ -8,6 +8,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
+    before_action :authenticate_user!
     @prototype = Prototype.new(prototype_params)
      
     if @prototype.save
@@ -25,6 +26,9 @@ class PrototypesController < ApplicationController
 
   def edit
     @prototype = Prototype.find(params[:id])
+    unless current_user.id == @prototype.user_id
+      redirect_to action: :index
+    end
   end
 
   def update
@@ -38,6 +42,7 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
+    before_action :authenticate_user!
     @prototype = Prototype.find(params[:id])
     @prototype.destroy
     redirect_to root_path
