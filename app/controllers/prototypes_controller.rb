@@ -43,7 +43,6 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    before_action :authenticate_user!
     @prototype = Prototype.find(params[:id])
     @prototype.destroy
     redirect_to root_path
