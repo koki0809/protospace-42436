@@ -4,6 +4,7 @@ class PrototypesController < ApplicationController
   end
 
   def new
+    before_action :authenticate_user!
     @prototype = Prototype.new
   end
 
