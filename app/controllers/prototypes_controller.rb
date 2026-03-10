@@ -1,15 +1,15 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @prototypes = Prototype.all
   end
 
   def new
-    before_action :authenticate_user!
     @prototype = Prototype.new
   end
 
   def create
-    before_action :authenticate_user!
     @prototype = Prototype.new(prototype_params)
      
     if @prototype.save
