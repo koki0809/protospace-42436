@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :profile, presence: true
   validates :affiliation, presence: true
   validates :position, presence: true
+  validates :password,confirmation: true, length: { minimum: 6 }
 end
