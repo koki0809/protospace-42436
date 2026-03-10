@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable
+         :recoverable, :rememberable, :validatable
   has_many :prototypes
   has_many :comments
 
+  validates :password,confirmation: true, length: { minimum: 6 }
   validates :user_name, presence: true
   validates :profile, presence: true
   validates :affiliation, presence: true
   validates :position, presence: true
-  validates :password,confirmation: true, length: { minimum: 6 }
 end
